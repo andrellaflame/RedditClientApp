@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		0E11204429A7FB26002BFF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11204329A7FB26002BFF23 /* AppDelegate.swift */; };
 		0E11204629A7FB26002BFF23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11204529A7FB26002BFF23 /* SceneDelegate.swift */; };
-		0E11204829A7FB26002BFF23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11204729A7FB26002BFF23 /* ViewController.swift */; };
+		0E11204829A7FB26002BFF23 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11204729A7FB26002BFF23 /* PostViewController.swift */; };
 		0E11204B29A7FB26002BFF23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E11204929A7FB26002BFF23 /* Main.storyboard */; };
 		0E11204D29A7FB28002BFF23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E11204C29A7FB28002BFF23 /* Assets.xcassets */; };
 		0E11205029A7FB28002BFF23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E11204E29A7FB28002BFF23 /* LaunchScreen.storyboard */; };
+		0E11205829A802CF002BFF23 /* JSONFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11205729A802CF002BFF23 /* JSONFetch.swift */; };
+		0E11205A29A804F8002BFF23 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11205929A804F8002BFF23 /* NetworkService.swift */; };
+		508A4222D106C42DAA3C2D96 /* Pods_Sulimenko_HT_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7F88D2AD48A554A6B9E67C /* Pods_Sulimenko_HT_2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01E1FBEC2450803CBE5DD591 /* Pods-Sulimenko_HT_2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sulimenko_HT_2.release.xcconfig"; path = "Target Support Files/Pods-Sulimenko_HT_2/Pods-Sulimenko_HT_2.release.xcconfig"; sourceTree = "<group>"; };
 		0E11204029A7FB26002BFF23 /* Sulimenko_HT_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sulimenko_HT_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E11204329A7FB26002BFF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E11204529A7FB26002BFF23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0E11204729A7FB26002BFF23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0E11204729A7FB26002BFF23 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		0E11204A29A7FB26002BFF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E11204C29A7FB28002BFF23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E11204F29A7FB28002BFF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E11205129A7FB28002BFF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E11205729A802CF002BFF23 /* JSONFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFetch.swift; sourceTree = "<group>"; };
+		0E11205929A804F8002BFF23 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		39C61A9972EDE1A19256F79C /* Pods-Sulimenko_HT_2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sulimenko_HT_2.debug.xcconfig"; path = "Target Support Files/Pods-Sulimenko_HT_2/Pods-Sulimenko_HT_2.debug.xcconfig"; sourceTree = "<group>"; };
+		4D7F88D2AD48A554A6B9E67C /* Pods_Sulimenko_HT_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sulimenko_HT_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508A4222D106C42DAA3C2D96 /* Pods_Sulimenko_HT_2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +51,8 @@
 			children = (
 				0E11204229A7FB26002BFF23 /* Sulimenko_HT_2 */,
 				0E11204129A7FB26002BFF23 /* Products */,
+				8E6DB25996F44340CCE7FBFA /* Pods */,
+				68E17DF593AE06B937F49216 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +69,33 @@
 			children = (
 				0E11204329A7FB26002BFF23 /* AppDelegate.swift */,
 				0E11204529A7FB26002BFF23 /* SceneDelegate.swift */,
-				0E11204729A7FB26002BFF23 /* ViewController.swift */,
+				0E11204729A7FB26002BFF23 /* PostViewController.swift */,
 				0E11204929A7FB26002BFF23 /* Main.storyboard */,
 				0E11204C29A7FB28002BFF23 /* Assets.xcassets */,
 				0E11204E29A7FB28002BFF23 /* LaunchScreen.storyboard */,
 				0E11205129A7FB28002BFF23 /* Info.plist */,
+				0E11205729A802CF002BFF23 /* JSONFetch.swift */,
+				0E11205929A804F8002BFF23 /* NetworkService.swift */,
 			);
 			path = Sulimenko_HT_2;
+			sourceTree = "<group>";
+		};
+		68E17DF593AE06B937F49216 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D7F88D2AD48A554A6B9E67C /* Pods_Sulimenko_HT_2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E6DB25996F44340CCE7FBFA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39C61A9972EDE1A19256F79C /* Pods-Sulimenko_HT_2.debug.xcconfig */,
+				01E1FBEC2450803CBE5DD591 /* Pods-Sulimenko_HT_2.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E11205429A7FB28002BFF23 /* Build configuration list for PBXNativeTarget "Sulimenko_HT_2" */;
 			buildPhases = (
+				30241C69921CCE714EFC8A76 /* [CP] Check Pods Manifest.lock */,
 				0E11203C29A7FB26002BFF23 /* Sources */,
 				0E11203D29A7FB26002BFF23 /* Frameworks */,
 				0E11203E29A7FB26002BFF23 /* Resources */,
+				421C798003F0F614A2993F3C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,13 +166,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		30241C69921CCE714EFC8A76 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sulimenko_HT_2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		421C798003F0F614A2993F3C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sulimenko_HT_2/Pods-Sulimenko_HT_2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sulimenko_HT_2/Pods-Sulimenko_HT_2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sulimenko_HT_2/Pods-Sulimenko_HT_2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0E11203C29A7FB26002BFF23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E11204829A7FB26002BFF23 /* ViewController.swift in Sources */,
+				0E11205A29A804F8002BFF23 /* NetworkService.swift in Sources */,
+				0E11204829A7FB26002BFF23 /* PostViewController.swift in Sources */,
 				0E11204429A7FB26002BFF23 /* AppDelegate.swift in Sources */,
+				0E11205829A802CF002BFF23 /* JSONFetch.swift in Sources */,
 				0E11204629A7FB26002BFF23 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +359,7 @@
 		};
 		0E11205529A7FB28002BFF23 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39C61A9972EDE1A19256F79C /* Pods-Sulimenko_HT_2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,14 +380,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.edu.ukma.Sulimenko-HT-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		0E11205629A7FB28002BFF23 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01E1FBEC2450803CBE5DD591 /* Pods-Sulimenko_HT_2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -330,9 +412,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.edu.ukma.Sulimenko-HT-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
