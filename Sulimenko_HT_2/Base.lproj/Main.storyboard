@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -26,16 +26,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad7-Dt-mV4">
-                                        <rect key="frame" x="8" y="270.99999999999994" width="49" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kF-H6-RDd">
                                         <rect key="frame" x="346" y="0.0" width="47" height="34"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system">
+                                            <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="tapBookmarkButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ej3-AA-bom"/>
                                         </connections>
@@ -45,6 +41,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Share" imagePadding="5">
                                             <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="medium"/>
+                                            <color key="baseForegroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="tapShareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HB4-vO-pbi"/>
@@ -85,6 +82,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" imagePadding="0.0">
                                             <imageReference key="image" image="message.fill" catalog="system" symbolScale="medium"/>
+                                            <color key="baseForegroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="tapCommentButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="il2-lb-Yfm"/>
@@ -102,18 +100,36 @@
                                             <constraint firstAttribute="height" constant="200" id="3FX-1X-D1l"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmv-mO-dnf">
+                                        <rect key="frame" x="0.0" y="265.99999999999994" width="44" height="34"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" imagePadding="0.0">
+                                            <imageReference key="image" image="heart.fill" catalog="system" symbolScale="medium"/>
+                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tapCommentButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="myV-mj-5us"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad7-Dt-mV4">
+                                        <rect key="frame" x="44" y="270.99999999999994" width="49" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <color key="backgroundColor" systemColor="separatorColor"/>
                                 <constraints>
+                                    <constraint firstItem="ad7-Dt-mV4" firstAttribute="leading" secondItem="jmv-mO-dnf" secondAttribute="trailing" id="2Ly-v3-pjv"/>
                                     <constraint firstItem="B3G-4R-jjt" firstAttribute="leading" secondItem="cBs-ts-dJw" secondAttribute="trailing" constant="8" id="3xD-4Y-SY4"/>
                                     <constraint firstAttribute="bottom" secondItem="t9b-Xn-CgG" secondAttribute="bottom" id="Eqv-3L-42k"/>
                                     <constraint firstItem="0kF-H6-RDd" firstAttribute="top" secondItem="NEC-qz-uNf" secondAttribute="top" id="GtJ-Vf-Imr"/>
                                     <constraint firstAttribute="bottom" secondItem="ad7-Dt-mV4" secondAttribute="bottom" constant="8" id="IWH-Zu-DF4"/>
-                                    <constraint firstItem="ad7-Dt-mV4" firstAttribute="leading" secondItem="NEC-qz-uNf" secondAttribute="leading" constant="8" id="Ihh-pR-bmI"/>
                                     <constraint firstItem="VsL-EM-gPe" firstAttribute="leading" secondItem="boQ-53-WzO" secondAttribute="trailing" constant="8" id="Jho-5F-Tp0"/>
                                     <constraint firstItem="bv9-9Z-J2I" firstAttribute="top" secondItem="8ps-pr-jbF" secondAttribute="bottom" constant="8" id="Km8-P1-XgT"/>
                                     <constraint firstAttribute="trailing" secondItem="8ps-pr-jbF" secondAttribute="trailing" constant="8" id="OSQ-Xo-Edb"/>
                                     <constraint firstItem="FrF-v6-41L" firstAttribute="top" secondItem="NEC-qz-uNf" secondAttribute="top" constant="8" id="PLy-8z-8Vi"/>
+                                    <constraint firstAttribute="bottom" secondItem="jmv-mO-dnf" secondAttribute="bottom" id="PqA-T3-kaa"/>
                                     <constraint firstItem="cBs-ts-dJw" firstAttribute="leading" secondItem="NEC-qz-uNf" secondAttribute="leading" constant="8" id="Qej-ob-bR4"/>
                                     <constraint firstItem="FrF-v6-41L" firstAttribute="leading" secondItem="B3G-4R-jjt" secondAttribute="trailing" constant="8" id="Qjd-Yp-b0U"/>
                                     <constraint firstAttribute="trailing" secondItem="SQ6-jT-aTY" secondAttribute="trailing" constant="8" id="RWT-lM-j6Z"/>
@@ -131,6 +147,7 @@
                                     <constraint firstItem="boQ-53-WzO" firstAttribute="top" secondItem="NEC-qz-uNf" secondAttribute="top" constant="8" id="pxr-Op-9aM"/>
                                     <constraint firstAttribute="trailing" secondItem="bv9-9Z-J2I" secondAttribute="trailing" id="uyp-4S-CXL"/>
                                     <constraint firstItem="bv9-9Z-J2I" firstAttribute="leading" secondItem="NEC-qz-uNf" secondAttribute="leading" id="x9t-Qq-1Ri"/>
+                                    <constraint firstItem="jmv-mO-dnf" firstAttribute="leading" secondItem="NEC-qz-uNf" secondAttribute="leading" id="ybT-lF-gRd"/>
                                     <constraint firstItem="boQ-53-WzO" firstAttribute="leading" secondItem="FrF-v6-41L" secondAttribute="trailing" constant="8" id="yza-ez-lXd"/>
                                 </constraints>
                             </view>
@@ -161,13 +178,20 @@
     </scenes>
     <resources>
         <image name="bookmark" catalog="system" width="110" height="128"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="message.fill" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -13,7 +13,7 @@ class NetworkService {
         httpHeaders.forEach {
             headers.append($0.key + "=" + $0.value + "&")
         }
-        let link = "https://www.reddit.com/r/ios/top.json?limit=1"
+        let link = "https://www.reddit.com/r/\(subreddit)/top.json?\(headers)"
         
         guard let url = URL(string: link) else { return }
         
