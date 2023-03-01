@@ -94,7 +94,6 @@
 				39C61A9972EDE1A19256F79C /* Pods-Sulimenko_HT_2.debug.xcconfig */,
 				01E1FBEC2450803CBE5DD591 /* Pods-Sulimenko_HT_2.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
