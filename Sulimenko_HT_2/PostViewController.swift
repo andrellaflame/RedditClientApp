@@ -54,6 +54,7 @@ class PostViewController: UIViewController {
                 self.titleName.text = post.title
                 self.rating.text = "\(post.ups + post.downs)"
                 self.commentsCount.text = "\(post.numberOfComments)"
+                
                 self.imageView.sd_setImage(with: URL(string: post.preview?.images.first?.source.url.replacing("&amp;", with: "&") ?? ""))
                 
                 self.imageView.frame.size.height = 200.0
