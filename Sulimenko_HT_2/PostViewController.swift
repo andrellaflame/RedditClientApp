@@ -12,6 +12,8 @@ class PostViewController: UIViewController {
     
     private let networkService = NetworkService()
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var domain: UILabel!
