@@ -8,7 +8,7 @@
 import Foundation
 
 class NetworkService {
-    func fetchData(subreddit: String, httpHeaders: [String: String], onComplete: @escaping (Post) -> Void) {
+    func fetchData(subreddit: String, httpHeaders: [String: String], onComplete: @escaping ([Post]) -> Void) {
         var headers = ""
         httpHeaders.forEach {
             headers.append($0.key + "=" + $0.value + "&")
@@ -20,8 +20,7 @@ class NetworkService {
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             
             guard let data = data, let redditData = try? JSONDecoder().decode(RedditData.self, from: data), let post = redditData.data.children.first?.data else { return }
-
-            onComplete(post)
+            onComplete([post])
         }.resume()
     }
 }

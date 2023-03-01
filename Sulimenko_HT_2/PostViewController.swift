@@ -10,10 +10,9 @@ import SDWebImage
 
 class PostViewController: UIViewController {
     
-    private let networkService = NetworkService()
+    //private let networkService = NetworkService()
     
     // MARK: - IBOutlets
-    
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var domain: UILabel!
@@ -23,10 +22,21 @@ class PostViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bookmarkButton: UIButton!
     
+//    private let data: PostData
+    
+//    init(from data: PostData) {
+//        self.data = data
+//    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        
+        
+        /*
         self.networkService.fetchData(subreddit: "ios", httpHeaders: ["limit":"1"]) {
             post in
             
@@ -64,6 +74,7 @@ class PostViewController: UIViewController {
                 self.bookmarkButton.setImage(Bool.random() ? UIImage.init(systemName: "bookmark"): UIImage.init(systemName: "bookmark.fill"), for: .normal)
             }
         }
+         */
     }
     
     @IBAction func tapShareButton(_ sender: Any) {
@@ -72,6 +83,5 @@ class PostViewController: UIViewController {
     }
     @IBAction func tapCommentButton(_ sender: Any) {
     }
-    
 }
 

@@ -16,6 +16,8 @@
 		0E11205029A7FB28002BFF23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E11204E29A7FB28002BFF23 /* LaunchScreen.storyboard */; };
 		0E11205829A802CF002BFF23 /* JSONFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11205729A802CF002BFF23 /* JSONFetch.swift */; };
 		0E11205A29A804F8002BFF23 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11205929A804F8002BFF23 /* NetworkService.swift */; };
+		0E5A1A4429AFF214003D7C08 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A1A4329AFF214003D7C08 /* PostTableViewCell.swift */; };
+		0E5A1A4929AFF7AA003D7C08 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A1A4829AFF7AA003D7C08 /* PostData.swift */; };
 		508A4222D106C42DAA3C2D96 /* Pods_Sulimenko_HT_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7F88D2AD48A554A6B9E67C /* Pods_Sulimenko_HT_2.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,8 @@
 		0E11205129A7FB28002BFF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E11205729A802CF002BFF23 /* JSONFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFetch.swift; sourceTree = "<group>"; };
 		0E11205929A804F8002BFF23 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		0E5A1A4329AFF214003D7C08 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		0E5A1A4829AFF7AA003D7C08 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		39C61A9972EDE1A19256F79C /* Pods-Sulimenko_HT_2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sulimenko_HT_2.debug.xcconfig"; path = "Target Support Files/Pods-Sulimenko_HT_2/Pods-Sulimenko_HT_2.debug.xcconfig"; sourceTree = "<group>"; };
 		4D7F88D2AD48A554A6B9E67C /* Pods_Sulimenko_HT_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sulimenko_HT_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -69,18 +73,36 @@
 		0E11204229A7FB26002BFF23 /* Sulimenko_HT_2 */ = {
 			isa = PBXGroup;
 			children = (
+				0E5A1A4529AFF231003D7C08 /* Storyboards */,
+				0E5A1A4229AFF110003D7C08 /* HTTPRequest */,
 				0E11204329A7FB26002BFF23 /* AppDelegate.swift */,
 				0E11204529A7FB26002BFF23 /* SceneDelegate.swift */,
 				0E11204729A7FB26002BFF23 /* PostViewController.swift */,
-				0E11204929A7FB26002BFF23 /* Main.storyboard */,
 				0E11204C29A7FB28002BFF23 /* Assets.xcassets */,
-				0E11204E29A7FB28002BFF23 /* LaunchScreen.storyboard */,
 				0E11205129A7FB28002BFF23 /* Info.plist */,
-				0E11205729A802CF002BFF23 /* JSONFetch.swift */,
-				0E11205929A804F8002BFF23 /* NetworkService.swift */,
 				0E0BF7CB29AFCC800007C39F /* PostListViewController.swift */,
+				0E5A1A4329AFF214003D7C08 /* PostTableViewCell.swift */,
 			);
 			path = Sulimenko_HT_2;
+			sourceTree = "<group>";
+		};
+		0E5A1A4229AFF110003D7C08 /* HTTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				0E11205729A802CF002BFF23 /* JSONFetch.swift */,
+				0E11205929A804F8002BFF23 /* NetworkService.swift */,
+				0E5A1A4829AFF7AA003D7C08 /* PostData.swift */,
+			);
+			path = HTTPRequest;
+			sourceTree = "<group>";
+		};
+		0E5A1A4529AFF231003D7C08 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0E11204929A7FB26002BFF23 /* Main.storyboard */,
+				0E11204E29A7FB28002BFF23 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		68E17DF593AE06B937F49216 /* Frameworks */ = {
@@ -215,6 +237,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E5A1A4429AFF214003D7C08 /* PostTableViewCell.swift in Sources */,
+				0E5A1A4929AFF7AA003D7C08 /* PostData.swift in Sources */,
 				0E11205A29A804F8002BFF23 /* NetworkService.swift in Sources */,
 				0E11204829A7FB26002BFF23 /* PostViewController.swift in Sources */,
 				0E11204429A7FB26002BFF23 /* AppDelegate.swift in Sources */,
