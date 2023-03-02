@@ -16,17 +16,6 @@ struct PostData {
     let numberOfComments: Int
     let imageURL: String
     let time: String
-    
-    init() {
-        self.saved = false
-        self.title = ""
-        self.rating = 0
-        self.domain = ""
-        self.author = ""
-        self.numberOfComments = 0
-        self.imageURL = ""
-        self.time = ""
-    }
 
     init(from data: Post) {
         self.saved = data.saved

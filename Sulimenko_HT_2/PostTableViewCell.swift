@@ -31,7 +31,7 @@ class PostTableViewCell: UITableViewCell {
         self.commentsCount.text = "\(post.numberOfComments)"
         self.imagePostView.sd_setImage(with: URL(string: post.imageURL))
 //        self.imagePostView.frame.size.height = 200.0
-//        self.imagePostView.contentMode = .scaleAspectFill
+        self.imagePostView.contentMode = .scaleAspectFill
         
         self.bookmarkButton.setImage(Bool.random() ? UIImage.init(systemName: "bookmark"): UIImage.init(systemName: "bookmark.fill"), for: .normal)
     }

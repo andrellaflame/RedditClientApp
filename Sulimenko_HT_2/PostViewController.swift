@@ -22,16 +22,18 @@ class PostViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bookmarkButton: UIButton!
     
-//    private let data: PostData
     
-//    init(from data: PostData) {
-//        self.data = data
-//    }
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        self.username.text = data.author
+//
+//        self.time.text = data.time
+//        self.domain.text = data.domain
+//        self.titleName.text = data.title
+//        self.rating.text = "\(data.rating)"
+//        self.commentsCount.text = "\(data.numberOfComments)"
+//        self.imageView.sd_setImage(with: URL(string: data.imageURL))
+        
         // Do any additional setup after loading the view.
         
         
@@ -75,6 +77,20 @@ class PostViewController: UIViewController {
             }
         }
          */
+//    }
+    
+    func configure(with post: PostData) {
+        self.username.text = post.author
+        self.time.text = post.time
+        self.domain.text = post.domain
+        self.titleName.text = post.title
+        self.rating.text = "\(post.rating)"
+        self.commentsCount.text = "\(post.numberOfComments)"
+        self.imageView.sd_setImage(with: URL(string: post.imageURL))
+//        self.imagePostView.frame.size.height = 200.0
+        self.imageView.contentMode = .scaleAspectFill
+        
+        self.bookmarkButton.setImage(Bool.random() ? UIImage.init(systemName: "bookmark"): UIImage.init(systemName: "bookmark.fill"), for: .normal)
     }
     
     @IBAction func tapShareButton(_ sender: Any) {
