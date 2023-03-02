@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class PostViewController: UIViewController {
+class PostDetailsViewController: UIViewController {
         
     // MARK: - IBOutlets
     @IBOutlet weak var username: UILabel!

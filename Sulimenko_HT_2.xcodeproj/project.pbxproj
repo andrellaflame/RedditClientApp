@@ -10,7 +10,7 @@
 		0E0BF7CC29AFCC800007C39F /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0BF7CB29AFCC800007C39F /* PostListViewController.swift */; };
 		0E11204429A7FB26002BFF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11204329A7FB26002BFF23 /* AppDelegate.swift */; };
 		0E11204629A7FB26002BFF23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11204529A7FB26002BFF23 /* SceneDelegate.swift */; };
-		0E11204829A7FB26002BFF23 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11204729A7FB26002BFF23 /* PostViewController.swift */; };
+		0E11204829A7FB26002BFF23 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11204729A7FB26002BFF23 /* PostDetailsViewController.swift */; };
 		0E11204B29A7FB26002BFF23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E11204929A7FB26002BFF23 /* Main.storyboard */; };
 		0E11204D29A7FB28002BFF23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E11204C29A7FB28002BFF23 /* Assets.xcassets */; };
 		0E11205029A7FB28002BFF23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E11204E29A7FB28002BFF23 /* LaunchScreen.storyboard */; };
@@ -28,7 +28,7 @@
 		0E11204029A7FB26002BFF23 /* Sulimenko_HT_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sulimenko_HT_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E11204329A7FB26002BFF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E11204529A7FB26002BFF23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0E11204729A7FB26002BFF23 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		0E11204729A7FB26002BFF23 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		0E11204A29A7FB26002BFF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E11204C29A7FB28002BFF23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E11204F29A7FB28002BFF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 				0E5A1A4229AFF110003D7C08 /* HTTPRequest */,
 				0E11204329A7FB26002BFF23 /* AppDelegate.swift */,
 				0E11204529A7FB26002BFF23 /* SceneDelegate.swift */,
-				0E11204729A7FB26002BFF23 /* PostViewController.swift */,
+				0E11204729A7FB26002BFF23 /* PostDetailsViewController.swift */,
 				0E11204C29A7FB28002BFF23 /* Assets.xcassets */,
 				0E11205129A7FB28002BFF23 /* Info.plist */,
 				0E0BF7CB29AFCC800007C39F /* PostListViewController.swift */,
@@ -252,7 +252,7 @@
 				0E5A1A4429AFF214003D7C08 /* PostTableViewCell.swift in Sources */,
 				0E5A1A4929AFF7AA003D7C08 /* PostData.swift in Sources */,
 				0E11205A29A804F8002BFF23 /* NetworkService.swift in Sources */,
-				0E11204829A7FB26002BFF23 /* PostViewController.swift in Sources */,
+				0E11204829A7FB26002BFF23 /* PostDetailsViewController.swift in Sources */,
 				0E11204429A7FB26002BFF23 /* AppDelegate.swift in Sources */,
 				0E11205829A802CF002BFF23 /* JSONFetch.swift in Sources */,
 				0E0BF7CC29AFCC800007C39F /* PostListViewController.swift in Sources */,

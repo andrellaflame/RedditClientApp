@@ -54,7 +54,7 @@ class PostListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Const.openPostPageSegue:
-            let nextViewController = segue.destination as! PostViewController
+            let nextViewController = segue.destination as! PostDetailsViewController
             
             DispatchQueue.main.async {
                 if let selectedPost = self.lastSelectedPost {

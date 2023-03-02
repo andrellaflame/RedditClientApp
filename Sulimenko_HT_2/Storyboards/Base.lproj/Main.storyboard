@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Post View Controller-->
+        <!--Post Details View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PostViewController" customModule="Sulimenko_HT_2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PostDetailsViewController" customModule="Sulimenko_HT_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,9 +103,11 @@
                                     <constraint firstItem="8ps-pr-jbF" firstAttribute="top" secondItem="B3G-4R-jjt" secondAttribute="bottom" constant="8" id="0ZN-hH-gbC"/>
                                     <constraint firstAttribute="trailing" secondItem="bv9-9Z-J2I" secondAttribute="trailing" id="15d-ru-LDq"/>
                                     <constraint firstItem="8ps-pr-jbF" firstAttribute="top" secondItem="cBs-ts-dJw" secondAttribute="bottom" constant="8" id="1wP-ZE-QQk"/>
+                                    <constraint firstItem="gGX-aX-dcz" firstAttribute="centerY" secondItem="8cC-EQ-G7l" secondAttribute="centerY" id="6F1-48-t4K"/>
                                     <constraint firstItem="FrF-v6-41L" firstAttribute="leading" secondItem="B3G-4R-jjt" secondAttribute="trailing" constant="8" id="6x5-rs-vkx"/>
                                     <constraint firstItem="0kF-H6-RDd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VsL-EM-gPe" secondAttribute="trailing" constant="8" symbolic="YES" id="72J-8h-sJX"/>
                                     <constraint firstItem="VsL-EM-gPe" firstAttribute="top" secondItem="NEC-qz-uNf" secondAttribute="top" constant="8" id="AtT-f6-TVq"/>
+                                    <constraint firstItem="8cC-EQ-G7l" firstAttribute="centerY" secondItem="dzl-Tg-mm4" secondAttribute="centerY" id="CTb-sm-21z"/>
                                     <constraint firstItem="B3G-4R-jjt" firstAttribute="leading" secondItem="cBs-ts-dJw" secondAttribute="trailing" constant="8" id="DYe-ce-r2d"/>
                                     <constraint firstItem="boQ-53-WzO" firstAttribute="leading" secondItem="FrF-v6-41L" secondAttribute="trailing" constant="8" id="DwP-er-sBU"/>
                                     <constraint firstAttribute="trailing" secondItem="0kF-H6-RDd" secondAttribute="trailing" id="EfL-Qx-jdR"/>
@@ -115,7 +117,6 @@
                                     <constraint firstItem="8ps-pr-jbF" firstAttribute="leading" secondItem="NEC-qz-uNf" secondAttribute="leading" constant="8" id="MF4-MV-PMP"/>
                                     <constraint firstAttribute="bottom" secondItem="gGX-aX-dcz" secondAttribute="bottom" constant="8" id="P02-os-o8k"/>
                                     <constraint firstItem="boQ-53-WzO" firstAttribute="top" secondItem="NEC-qz-uNf" secondAttribute="top" constant="8" id="PO3-Uh-Ewj"/>
-                                    <constraint firstItem="gGX-aX-dcz" firstAttribute="top" secondItem="bv9-9Z-J2I" secondAttribute="bottom" constant="8" id="SLU-hf-mvT"/>
                                     <constraint firstItem="gGX-aX-dcz" firstAttribute="leading" secondItem="NEC-qz-uNf" secondAttribute="leading" constant="8" id="TaC-XN-P7Z"/>
                                     <constraint firstItem="B3G-4R-jjt" firstAttribute="top" secondItem="NEC-qz-uNf" secondAttribute="top" constant="8" id="UYH-d9-JnB"/>
                                     <constraint firstItem="8cC-EQ-G7l" firstAttribute="centerX" secondItem="NEC-qz-uNf" secondAttribute="centerX" id="YTH-T6-Q9p"/>
@@ -123,6 +124,7 @@
                                     <constraint firstItem="VsL-EM-gPe" firstAttribute="leading" secondItem="boQ-53-WzO" secondAttribute="trailing" constant="8" id="Zx4-VB-2wY"/>
                                     <constraint firstItem="8ps-pr-jbF" firstAttribute="top" secondItem="boQ-53-WzO" secondAttribute="bottom" constant="8" id="fnK-XU-Wzu"/>
                                     <constraint firstAttribute="bottom" secondItem="dzl-Tg-mm4" secondAttribute="bottom" constant="8" id="g6n-ZX-aNk"/>
+                                    <constraint firstItem="8cC-EQ-G7l" firstAttribute="top" secondItem="bv9-9Z-J2I" secondAttribute="bottom" priority="750" constant="8" id="jTI-z9-QiR"/>
                                     <constraint firstAttribute="trailing" secondItem="8ps-pr-jbF" secondAttribute="trailing" constant="8" id="l6T-bF-Th9"/>
                                     <constraint firstItem="0kF-H6-RDd" firstAttribute="top" secondItem="NEC-qz-uNf" secondAttribute="top" id="pLK-3S-eSt"/>
                                     <constraint firstItem="bv9-9Z-J2I" firstAttribute="top" secondItem="8ps-pr-jbF" secondAttribute="bottom" constant="8" id="ph1-nU-qUI"/>
@@ -140,7 +142,7 @@
                             <constraint firstItem="NEC-qz-uNf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0eS-qh-oNN"/>
                             <constraint firstItem="NEC-qz-uNf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Njh-FK-lLQ"/>
                             <constraint firstItem="NEC-qz-uNf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hGi-PY-aNL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NEC-qz-uNf" secondAttribute="bottom" id="wE5-d3-phu"/>
+                            <constraint firstItem="NEC-qz-uNf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ja1-Ew-DID"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nlw-cv-mWW"/>
@@ -367,7 +369,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="LhB-kL-N4d" id="PL3-5m-WLu"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="open_post_page" id="lW2-vS-tDO"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="open_post_page" id="kyL-fu-LLv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h5a-mW-h57" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
