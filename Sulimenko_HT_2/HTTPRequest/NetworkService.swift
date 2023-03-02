@@ -20,6 +20,7 @@ class NetworkService {
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             
             guard let data = data, let redditData = try? JSONDecoder().decode(RedditData.self, from: data) else { return }
+            PostListViewController.Const.afterParameter = redditData.data.after
             onComplete(redditData.data.children.map({ return PostData(from: $0.data) }))
         }.resume()
     }
