@@ -75,13 +75,11 @@
 		0E11204229A7FB26002BFF23 /* Sulimenko_HT_2 */ = {
 			isa = PBXGroup;
 			children = (
+				0E8D815229B8F33900741F20 /* Application */,
 				0E5BFDFD29B114B600C56CCE /* Images */,
 				0E5A1A4529AFF231003D7C08 /* Storyboards */,
 				0E5A1A4229AFF110003D7C08 /* HTTPRequest */,
-				0E11204329A7FB26002BFF23 /* AppDelegate.swift */,
-				0E11204529A7FB26002BFF23 /* SceneDelegate.swift */,
 				0E11204729A7FB26002BFF23 /* PostDetailsViewController.swift */,
-				0E11204C29A7FB28002BFF23 /* Assets.xcassets */,
 				0E11205129A7FB28002BFF23 /* Info.plist */,
 				0E0BF7CB29AFCC800007C39F /* PostListViewController.swift */,
 				0E5A1A4329AFF214003D7C08 /* PostTableViewCell.swift */,
@@ -111,9 +109,19 @@
 		0E5BFDFD29B114B600C56CCE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0E11204C29A7FB28002BFF23 /* Assets.xcassets */,
 				0E5BFDFE29B114B600C56CCE /* 25x25RedditLogo.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		0E8D815229B8F33900741F20 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				0E11204329A7FB26002BFF23 /* AppDelegate.swift */,
+				0E11204529A7FB26002BFF23 /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		68E17DF593AE06B937F49216 /* Frameworks */ = {
