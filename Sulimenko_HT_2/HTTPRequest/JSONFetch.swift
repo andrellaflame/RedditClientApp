@@ -41,6 +41,7 @@ struct Post: Decodable{
     let domain: String
     let author: String
     let numberOfComments: Int
+    let link: String
     let preview: Preview?
     let createdUtcTime: Int
     
@@ -49,6 +50,7 @@ struct Post: Decodable{
         case author = "author"
         case numberOfComments = "num_comments"
         case createdUtcTime = "created_utc"
+        case link = "permalink"
     }
 }
 

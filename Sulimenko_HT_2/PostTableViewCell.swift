@@ -9,8 +9,19 @@ import Foundation
 import UIKit
 import SDWebImage
 
+// MARK: - Protocols
+protocol PostTableViewCellDelegate: AnyObject {
+    func didTapInsideShareButton(link: String)
+}
+
+
 class PostTableViewCell: UITableViewCell {
-    // MARK: - Outlets
+    
+    // MARK: - Properties
+    weak var delegate: PostTableViewCellDelegate?
+    private var postLink = String()
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var domain: UILabel!
@@ -20,8 +31,14 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var imagePostView: UIImageView!
     @IBOutlet weak var bookmarkButton: UIButton!
     
+    // MARK: - IBActions
+    @IBAction func tapShareButton(_ sender: Any) {
+        self.delegate?.didTapInsideShareButton(link: self.postLink)
+    }
+    
     // MARK: - Configuration
     func config(from post: PostData) {
+        self.postLink = post.link
         self.username.text = "@\(post.author)"
         self.time.text = post.time
         self.domain.text = post.domain

@@ -16,6 +16,7 @@ struct PostData {
     let numberOfComments: Int
     let imageURL: String
     let time: String
+    let link: String
 
     init(from data: Post) {
         self.saved = data.saved
@@ -24,6 +25,7 @@ struct PostData {
         self.domain = data.domain
         self.author = data.author
         self.numberOfComments = data.numberOfComments
+        self.link = data.link
         self.imageURL = data.preview?.images.first?.source.url.replacing("&amp;", with: "&") ?? ""
         self.time = {
             let currentTime = Int(NSDate().timeIntervalSince1970)

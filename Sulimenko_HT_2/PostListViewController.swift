@@ -11,12 +11,13 @@ import UIKit
 class PostListViewController: UIViewController {
     
     // MARK: - Const
-    struct Const {
+    enum Const {
         static let cellReuseIdentifier = "reusable_post_cell"
         static let openPostPageSegue = "open_post_page"
         static let numberOfPostsOnPage = 15
         static let requestSubreddit = "ios"
         static var afterParameter: String? = ""
+        static var url: String = "https://www.reddit.com"
     }
     
     // MARK: - Properties & data
@@ -94,7 +95,7 @@ extension PostListViewController: UITableViewDataSource {
         ) as! PostTableViewCell
         
         cell.config(from: self.list[indexPath.row])
-        
+        cell.delegate = self
         return cell
     }
 }
@@ -131,5 +132,12 @@ extension PostListViewController: UITableViewDelegate {
                 }
             }
         }
+    }
+}
+
+// MARK: - PostTableViewCellDelegate
+extension PostListViewController: PostTableViewCellDelegate {
+    func didTapInsideShareButton(link: String) {
+        AppService.didTapInsideShareButton(link: link, vc: self)
     }
 }

@@ -77,9 +77,6 @@
                                             <imageReference key="image" image="message.fill" catalog="system" symbolScale="medium"/>
                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <action selector="tapCommentButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9QN-fg-dro"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzl-Tg-mm4">
                                         <rect key="frame" x="328" y="758" width="92" height="35"/>
@@ -88,6 +85,9 @@
                                             <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="medium"/>
                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tapShareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AAV-Jq-d22"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGX-aX-dcz">
                                         <rect key="frame" x="8" y="758" width="99" height="35"/>
@@ -227,6 +227,7 @@
                                                                 <color key="baseForegroundColor" systemColor="labelColor"/>
                                                             </buttonConfiguration>
                                                             <connections>
+                                                                <action selector="tapShareButton:" destination="AJg-J2-DGM" eventType="touchUpInside" id="83K-zP-I7c"/>
                                                                 <action selector="tapShareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rxa-a8-zQF"/>
                                                             </connections>
                                                         </button>

@@ -9,6 +9,9 @@ import UIKit
 import SDWebImage
 
 class PostDetailsViewController: UIViewController {
+    
+    // MARK: - Properties
+    var post: PostData?
         
     // MARK: - IBOutlets
     @IBOutlet weak var username: UILabel!
@@ -22,6 +25,7 @@ class PostDetailsViewController: UIViewController {
         
     // MARK: - Configuration
     func configure(with post: PostData) {
+        self.post = post
         self.username.text = "@\(post.author)"
         self.time.text = post.time
         self.domain.text = post.domain
@@ -36,10 +40,8 @@ class PostDetailsViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func tapShareButton(_ sender: Any) {
-    }
-    @IBAction func tapBookmarkButton(_ sender: Any) {
-    }
-    @IBAction func tapCommentButton(_ sender: Any) {
+        if let urlString = self.post?.link {
+            AppService.didTapInsideShareButton(link: urlString, vc: self)
+        }
     }
 }
-
