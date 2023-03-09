@@ -21,12 +21,34 @@ class PostListViewController: UIViewController {
         static var fileName = "PostData.json"
     }
     
-    // MARK: - Properties & data
+    // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
-    private let networkService = NetworkService()
-
-    private var lastSelectedPost: PostData?
+    @IBOutlet weak var showSavedPostsButton: UIBarButtonItem!
+    @IBOutlet weak var navigationBar: UINavigationItem!
     
+    
+    // MARK: - Properties & data
+    private let networkService = NetworkService()
+    private var lastSelectedPost: PostData?
+    private var isShowingSavedPosts = false
+    
+    // MARK: - IBActions
+    @IBAction func tapShowSavedPostsButton(_ sender: Any) {
+        self.isShowingSavedPosts.toggle()
+        print(self.isShowingSavedPosts ? "Showing saved posts": "Showing all posts")
+        if self.isShowingSavedPosts {
+            PostDataManager.shared.displayedPosts = PostDataManager.shared.savedPosts
+            self.showSavedPostsButton.image = UIImage(systemName: "bookmark.circle.fill")
+            self.showSavedPostsButton.tintColor = .systemOrange
+        }
+        else {
+            PostDataManager.shared.displayedPosts = PostDataManager.shared.allPosts
+            self.showSavedPostsButton.image = UIImage(systemName: "bookmark.circle")
+            self.showSavedPostsButton.tintColor = .black
+        }
+        
+        self.tableView.reloadData()
+    }
     
     // MARK: - Lyfecycle
     override func viewDidLoad() {
@@ -123,6 +145,8 @@ extension PostListViewController: UITableViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if !self.isShowingSavedPosts {
         let offsetY = scrollView.contentOffset.y
         let height = scrollView.contentSize.height
 
@@ -131,30 +155,34 @@ extension PostListViewController: UITableViewDelegate {
             return
         }
 
-        if offsetY > height - scrollView.frame.height {
-            self.networkService.fetchData(
-                subreddit: "ios",
-                httpHeaders: ["limit":"\(Const.numberOfPostsOnPage)",
-                              "after":after]
-            ) {
-                listOfPosts in
-                DispatchQueue.main.async {
-                    let modified = listOfPosts.map({ element -> PostData in
-                        var copy = element
-                        for postElement in PostDataManager.shared.savedPosts{
-                            
-                            if (postElement.id == element.id) {
-                                copy.saved = true
+            if offsetY > height - scrollView.frame.height {
+                self.networkService.fetchData(
+                    subreddit: "ios",
+                    httpHeaders: ["limit":"\(Const.numberOfPostsOnPage)",
+                                  "after":after]
+                ) {
+                    listOfPosts in
+                    DispatchQueue.main.async {
+                        let modified = listOfPosts.map({ element -> PostData in
+                            var copy = element
+                            for postElement in PostDataManager.shared.savedPosts{
+                                
+                                if (postElement.id == element.id) {
+                                    copy.saved = true
+                                }
                             }
-                        }
-                        return copy
-                    })
-                    
-                    PostDataManager.shared.displayedPosts.append(contentsOf: modified)
-                    PostDataManager.shared.allPosts.append(contentsOf: modified)
-                    self.tableView.reloadData()
+                            return copy
+                        })
+                        
+                        PostDataManager.shared.displayedPosts.append(contentsOf: modified)
+                        PostDataManager.shared.allPosts.append(contentsOf: modified)
+                        self.tableView.reloadData()
+                    }
                 }
             }
+        }
+        else {
+            tableView.tableFooterView = createEndPageMessage()
         }
     }
 }
