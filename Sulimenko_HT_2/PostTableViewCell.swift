@@ -12,6 +12,7 @@ import SDWebImage
 // MARK: - Protocols
 protocol PostTableViewCellDelegate: AnyObject {
     func didTapInsideShareButton(link: String)
+    func didTapInsideSaveButton(post: inout PostData, bookmarkButton: UIButton)
 }
 
 
@@ -20,6 +21,7 @@ class PostTableViewCell: UITableViewCell {
     // MARK: - Properties
     weak var delegate: PostTableViewCellDelegate?
     private var postLink = String()
+    private var post: PostData?
     
     // MARK: - IBOutlets
     @IBOutlet weak var username: UILabel!
@@ -36,8 +38,13 @@ class PostTableViewCell: UITableViewCell {
         self.delegate?.didTapInsideShareButton(link: self.postLink)
     }
     
+    @IBAction func tapSaveButton(_ sender: Any) {
+        self.delegate?.didTapInsideSaveButton(post: &(self.post)!, bookmarkButton: self.bookmarkButton)
+    }
+    
     // MARK: - Configuration
     func config(from post: PostData) {
+        self.post = post
         self.postLink = post.link
         self.username.text = "@\(post.author)"
         self.time.text = post.time

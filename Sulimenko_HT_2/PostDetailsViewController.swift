@@ -12,6 +12,8 @@ class PostDetailsViewController: UIViewController {
     
     // MARK: - Properties
     var post: PostData?
+//    var isSaved = false
+    weak var referenceTable: UITableView?
         
     // MARK: - IBOutlets
     @IBOutlet weak var username: UILabel!
@@ -26,6 +28,7 @@ class PostDetailsViewController: UIViewController {
     // MARK: - Configuration
     func configure(with post: PostData) {
         self.post = post
+//        self.isSaved = post.saved
         self.username.text = "@\(post.author)"
         self.time.text = post.time
         self.domain.text = post.domain
@@ -43,5 +46,10 @@ class PostDetailsViewController: UIViewController {
         if let urlString = self.post?.link {
             AppService.didTapInsideShareButton(link: urlString, vc: self)
         }
+    }
+    
+    @IBAction func tapSaveButton(_ sender: Any) {
+        AppService.didTapInsideSaveButton(post: &(self.post)!, bookmarkButton: self.bookmarkButton)
+        self.referenceTable?.reloadData()
     }
 }

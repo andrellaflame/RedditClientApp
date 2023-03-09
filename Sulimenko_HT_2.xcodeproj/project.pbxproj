@@ -20,6 +20,7 @@
 		0E5A1A4929AFF7AA003D7C08 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A1A4829AFF7AA003D7C08 /* PostData.swift */; };
 		0E5BFDFF29B114B600C56CCE /* 25x25RedditLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E5BFDFE29B114B600C56CCE /* 25x25RedditLogo.png */; };
 		0E8D815429B9042000741F20 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D815329B9042000741F20 /* AppService.swift */; };
+		0E8D815829B96F9C00741F20 /* PostDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D815729B96F9C00741F20 /* PostDataManager.swift */; };
 		508A4222D106C42DAA3C2D96 /* Pods_Sulimenko_HT_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7F88D2AD48A554A6B9E67C /* Pods_Sulimenko_HT_2.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		0E5A1A4829AFF7AA003D7C08 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		0E5BFDFE29B114B600C56CCE /* 25x25RedditLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 25x25RedditLogo.png; sourceTree = "<group>"; };
 		0E8D815329B9042000741F20 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		0E8D815729B96F9C00741F20 /* PostDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDataManager.swift; sourceTree = "<group>"; };
 		39C61A9972EDE1A19256F79C /* Pods-Sulimenko_HT_2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sulimenko_HT_2.debug.xcconfig"; path = "Target Support Files/Pods-Sulimenko_HT_2/Pods-Sulimenko_HT_2.debug.xcconfig"; sourceTree = "<group>"; };
 		4D7F88D2AD48A554A6B9E67C /* Pods_Sulimenko_HT_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sulimenko_HT_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -86,6 +88,7 @@
 				0E0BF7CB29AFCC800007C39F /* PostListViewController.swift */,
 				0E5A1A4329AFF214003D7C08 /* PostTableViewCell.swift */,
 				0E8D815329B9042000741F20 /* AppService.swift */,
+				0E8D815729B96F9C00741F20 /* PostDataManager.swift */,
 			);
 			path = Sulimenko_HT_2;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				0E11205829A802CF002BFF23 /* JSONFetch.swift in Sources */,
 				0E0BF7CC29AFCC800007C39F /* PostListViewController.swift in Sources */,
 				0E11204629A7FB26002BFF23 /* SceneDelegate.swift in Sources */,
+				0E8D815829B96F9C00741F20 /* PostDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

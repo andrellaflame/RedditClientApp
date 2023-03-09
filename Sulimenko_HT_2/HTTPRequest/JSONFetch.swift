@@ -44,9 +44,10 @@ struct Post: Decodable{
     let link: String
     let preview: Preview?
     let createdUtcTime: Int
+    let id: String
     
     enum CodingKeys: String, CodingKey {
-        case saved, title, downs, ups, domain, preview
+        case saved, title, downs, ups, domain, preview, id
         case author = "author"
         case numberOfComments = "num_comments"
         case createdUtcTime = "created_utc"

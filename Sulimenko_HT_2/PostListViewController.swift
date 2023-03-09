@@ -17,19 +17,21 @@ class PostListViewController: UIViewController {
         static let numberOfPostsOnPage = 15
         static let requestSubreddit = "ios"
         static var afterParameter: String? = ""
-        static var url: String = "https://www.reddit.com"
+        static var url = "https://www.reddit.com"
+        static var fileName = "PostData.json"
     }
     
     // MARK: - Properties & data
     @IBOutlet weak var tableView: UITableView!
     private let networkService = NetworkService()
-    private var list = [PostData]()
+
     private var lastSelectedPost: PostData?
     
     
     // MARK: - Lyfecycle
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
+        PostDataManager.shared.readJSON()
         self.tableView.showsVerticalScrollIndicator = true
         
         self.networkService.fetchData(
@@ -37,8 +39,17 @@ class PostListViewController: UIViewController {
             httpHeaders: ["limit":"\(Const.numberOfPostsOnPage)"]
         ) {
             listOfPosts in
-            DispatchQueue.main.async {
-                self.list = listOfPosts
+            DispatchQueue.main.async {                
+                PostDataManager.shared.displayedPosts = listOfPosts.map { post in
+                    var postTemp = post
+                    for savedPost in PostDataManager.shared.savedPosts{
+                        if (savedPost.id == post.id) {
+                            postTemp.saved = true
+                        }
+                    }
+                    return postTemp
+                }
+                PostDataManager.shared.allPosts.append(contentsOf: PostDataManager.shared.displayedPosts)
                 self.tableView.reloadData()
             }
         }
@@ -60,6 +71,7 @@ class PostListViewController: UIViewController {
             DispatchQueue.main.async {
                 if let selectedPost = self.lastSelectedPost {
                     nextViewController.configure(with: selectedPost)
+                    nextViewController.referenceTable = self.tableView
                 }
             }
         default: break
@@ -82,7 +94,7 @@ extension PostListViewController: UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return list.count
+        return PostDataManager.shared.displayedPosts.count
     }
     
     func tableView(
@@ -94,7 +106,7 @@ extension PostListViewController: UITableViewDataSource {
             for: indexPath
         ) as! PostTableViewCell
         
-        cell.config(from: self.list[indexPath.row])
+        cell.config(from: PostDataManager.shared.displayedPosts[indexPath.row])
         cell.delegate = self
         return cell
     }
@@ -106,7 +118,7 @@ extension PostListViewController: UITableViewDelegate {
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
-        self.lastSelectedPost = self.list[indexPath.row]
+        self.lastSelectedPost = PostDataManager.shared.displayedPosts[indexPath.row]
         self.performSegue(withIdentifier: Const.openPostPageSegue, sender: nil)
     }
     
@@ -127,7 +139,19 @@ extension PostListViewController: UITableViewDelegate {
             ) {
                 listOfPosts in
                 DispatchQueue.main.async {
-                    self.list.append(contentsOf: listOfPosts)
+                    let modified = listOfPosts.map({ element -> PostData in
+                        var copy = element
+                        for postElement in PostDataManager.shared.savedPosts{
+                            
+                            if (postElement.id == element.id) {
+                                copy.saved = true
+                            }
+                        }
+                        return copy
+                    })
+                    
+                    PostDataManager.shared.displayedPosts.append(contentsOf: modified)
+                    PostDataManager.shared.allPosts.append(contentsOf: modified)
                     self.tableView.reloadData()
                 }
             }
@@ -137,6 +161,11 @@ extension PostListViewController: UITableViewDelegate {
 
 // MARK: - PostTableViewCellDelegate
 extension PostListViewController: PostTableViewCellDelegate {
+    func didTapInsideSaveButton(post: inout PostData, bookmarkButton: UIButton) {
+        AppService.didTapInsideSaveButton(post: &post, bookmarkButton: bookmarkButton)
+        self.tableView.reloadData()
+    }
+    
     func didTapInsideShareButton(link: String) {
         AppService.didTapInsideShareButton(link: link, vc: self)
     }
