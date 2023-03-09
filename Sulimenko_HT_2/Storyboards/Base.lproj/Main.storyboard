@@ -189,8 +189,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LhB-kL-N4d">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <rect key="frame" x="0.0" y="145" width="393" height="673"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reusable_post_cell" rowHeight="312" id="AJg-J2-DGM" customClass="PostTableViewCell" customModule="Sulimenko_HT_2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="312"/>
@@ -353,14 +353,29 @@
                                     <outlet property="dataSource" destination="JrK-tw-lBp" id="pj9-Cy-VNT"/>
                                 </connections>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hh-Ke-LeL">
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ZX-6h-oHE">
+                                <rect key="frame" x="8" y="103" width="377" height="34"/>
+                                <color key="backgroundColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FYA-7q-jeY"/>
                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                         <constraints>
                             <constraint firstItem="LhB-kL-N4d" firstAttribute="leading" secondItem="FYA-7q-jeY" secondAttribute="leading" id="2lJ-rk-Jsn"/>
                             <constraint firstItem="FYA-7q-jeY" firstAttribute="trailing" secondItem="LhB-kL-N4d" secondAttribute="trailing" id="3nr-K7-qpq"/>
+                            <constraint firstItem="9ZX-6h-oHE" firstAttribute="top" secondItem="FYA-7q-jeY" secondAttribute="top" id="6Eq-kR-bbZ"/>
+                            <constraint firstItem="9ZX-6h-oHE" firstAttribute="leading" secondItem="FYA-7q-jeY" secondAttribute="leading" constant="8" id="6tE-cb-QjD"/>
                             <constraint firstItem="FYA-7q-jeY" firstAttribute="bottom" secondItem="LhB-kL-N4d" secondAttribute="bottom" id="AmG-90-pUa"/>
-                            <constraint firstItem="LhB-kL-N4d" firstAttribute="top" secondItem="FYA-7q-jeY" secondAttribute="top" id="j0K-RK-SSE"/>
+                            <constraint firstItem="FYA-7q-jeY" firstAttribute="trailing" secondItem="9ZX-6h-oHE" secondAttribute="trailing" constant="8" id="E18-NO-ux2"/>
+                            <constraint firstItem="LhB-kL-N4d" firstAttribute="top" secondItem="9ZX-6h-oHE" secondAttribute="bottom" constant="8" id="ReO-00-b9e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NDn-v3-vNm">
@@ -374,6 +389,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="navigationBar" destination="NDn-v3-vNm" id="yIu-5u-DsI"/>
+                        <outlet property="searchTextField" destination="9ZX-6h-oHE" id="PDv-uv-t2J"/>
                         <outlet property="showSavedPostsButton" destination="1gd-Ar-39g" id="qNy-Rb-hwR"/>
                         <outlet property="tableView" destination="LhB-kL-N4d" id="PL3-5m-WLu"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="open_post_page" id="kyL-fu-LLv"/>

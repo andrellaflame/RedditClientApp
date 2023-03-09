@@ -17,15 +17,15 @@ class PostListViewController: UIViewController {
         static let numberOfPostsOnPage = 15
         static let requestSubreddit = "ios"
         static var afterParameter: String? = ""
-        static var url = "https://www.reddit.com"
-        static var fileName = "PostData.json"
+        static let url = "https://www.reddit.com"
+        static let fileName = "PostData.json"
     }
     
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var showSavedPostsButton: UIBarButtonItem!
     @IBOutlet weak var navigationBar: UINavigationItem!
-    
+    @IBOutlet weak var searchTextField: UITextField!
     
     // MARK: - Properties & data
     private let networkService = NetworkService()
@@ -40,11 +40,15 @@ class PostListViewController: UIViewController {
             PostDataManager.shared.displayedPosts = PostDataManager.shared.savedPosts
             self.showSavedPostsButton.image = UIImage(systemName: "bookmark.circle.fill")
             self.showSavedPostsButton.tintColor = .systemOrange
+            
+            self.searchTextField.isHidden = false
         }
         else {
             PostDataManager.shared.displayedPosts = PostDataManager.shared.allPosts
             self.showSavedPostsButton.image = UIImage(systemName: "bookmark.circle")
             self.showSavedPostsButton.tintColor = .black
+            
+            self.searchTextField.isHidden = true
         }
         
         self.tableView.reloadData()
@@ -77,11 +81,14 @@ class PostListViewController: UIViewController {
         }
         
         super.viewDidLoad()
+        
         self.navigationItem.title = "r/\(Const.requestSubreddit)"
         self.navigationItem.backButtonTitle = "Back"
+        self.searchTextField.isHidden = true
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.searchTextField.delegate = self
     }
     
     // MARK: - Navigation
@@ -147,40 +154,43 @@ extension PostListViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         if !self.isShowingSavedPosts {
-        let offsetY = scrollView.contentOffset.y
-        let height = scrollView.contentSize.height
 
-        guard let after = Const.afterParameter else {
-            tableView.tableFooterView = createEndPageMessage()
-            return
-        }
+            tableView.tableHeaderView = nil
+            
+            let offsetY = scrollView.contentOffset.y
+            let height = scrollView.contentSize.height
 
-            if offsetY > height - scrollView.frame.height {
-                self.networkService.fetchData(
-                    subreddit: "ios",
-                    httpHeaders: ["limit":"\(Const.numberOfPostsOnPage)",
-                                  "after":after]
-                ) {
-                    listOfPosts in
-                    DispatchQueue.main.async {
-                        let modified = listOfPosts.map({ element -> PostData in
-                            var copy = element
-                            for postElement in PostDataManager.shared.savedPosts{
+            guard let after = Const.afterParameter else {
+                tableView.tableFooterView = createEndPageMessage()
+                return
+            }
+
+                if offsetY > height - scrollView.frame.height {
+                    self.networkService.fetchData(
+                        subreddit: "ios",
+                        httpHeaders: ["limit":"\(Const.numberOfPostsOnPage)",
+                                      "after":after]
+                    ) {
+                        listOfPosts in
+                        DispatchQueue.main.async {
+                            let modified = listOfPosts.map({ element -> PostData in
+                                var copy = element
+                                for postElement in PostDataManager.shared.savedPosts{
                                 
-                                if (postElement.id == element.id) {
-                                    copy.saved = true
+                                    if (postElement.id == element.id) {
+                                        copy.saved = true
+                                    }
                                 }
-                            }
-                            return copy
-                        })
+                                return copy
+                            })
                         
-                        PostDataManager.shared.displayedPosts.append(contentsOf: modified)
-                        PostDataManager.shared.allPosts.append(contentsOf: modified)
-                        self.tableView.reloadData()
+                            PostDataManager.shared.displayedPosts.append(contentsOf: modified)
+                            PostDataManager.shared.allPosts.append(contentsOf: modified)
+                            self.tableView.reloadData()
+                        }
                     }
                 }
             }
-        }
         else {
             tableView.tableFooterView = createEndPageMessage()
         }
@@ -196,5 +206,24 @@ extension PostListViewController: PostTableViewCellDelegate {
     
     func didTapInsideShareButton(link: String) {
         AppService.didTapInsideShareButton(link: link, vc: self)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension PostListViewController: UITextFieldDelegate {
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        let searchText = (textField.text ?? "") + string
+        
+        PostDataManager.shared.displayedPosts =
+        PostDataManager.shared.savedPosts.filter({
+            $0.title.lowercased().contains(searchText.lowercased())
+        })
+        
+        tableView.reloadData()
+        return true
     }
 }
