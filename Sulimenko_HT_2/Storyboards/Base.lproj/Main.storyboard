@@ -32,10 +32,6 @@
                                         <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system">
                                             <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <action selector="tapBookmarkButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ej3-AA-bom"/>
-                                            <action selector="tapCommentButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iAj-L8-qtF"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3G-4R-jjt">
                                         <rect key="frame" x="95" y="8" width="8" height="26"/>
@@ -286,8 +282,8 @@
                                                                 <color key="baseForegroundColor" systemColor="labelColor"/>
                                                             </buttonConfiguration>
                                                         </button>
-                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1jO-lm-btG">
-                                                            <rect key="frame" x="8" y="308" width="377" height="6"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jO-lm-btG">
+                                                            <rect key="frame" x="8" y="308" width="412" height="4"/>
                                                             <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                         </view>
                                                     </subviews>
@@ -301,6 +297,7 @@
                                                         <constraint firstItem="tVf-Wg-3HD" firstAttribute="leading" secondItem="8jj-bL-evV" secondAttribute="leading" constant="8" id="EQk-i5-yES"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="GC3-JY-I5t"/>
                                                         <constraint firstItem="1jO-lm-btG" firstAttribute="top" secondItem="ea8-O5-yy0" secondAttribute="bottom" constant="8" id="IPa-8I-ugC"/>
+                                                        <constraint firstItem="idO-cu-pQv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WsV-kO-V7t" secondAttribute="trailing" constant="8" symbolic="YES" id="ImR-qh-cSJ"/>
                                                         <constraint firstItem="1jO-lm-btG" firstAttribute="top" secondItem="idO-cu-pQv" secondAttribute="bottom" constant="8" id="J0E-H2-BSV"/>
                                                         <constraint firstItem="tVf-Wg-3HD" firstAttribute="top" secondItem="8jj-bL-evV" secondAttribute="top" constant="8" id="M9n-S3-5lE"/>
                                                         <constraint firstItem="cl8-la-iz3" firstAttribute="top" secondItem="8jj-bL-evV" secondAttribute="top" constant="8" id="NYa-90-0wd"/>

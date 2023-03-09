@@ -15,8 +15,4 @@ struct AppService {
 
         vc.present(ac, animated: true, completion: nil)
     }
-    
-    static func didTapInsideSaveButtom() {
-        
-    }
 }
