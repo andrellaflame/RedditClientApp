@@ -217,12 +217,12 @@ extension PostListViewController: UITextFieldDelegate {
         replacementString string: String
     ) -> Bool {
         let searchText = (textField.text ?? "") + string
-        
+
         PostDataManager.shared.displayedPosts =
         PostDataManager.shared.savedPosts.filter({
             $0.title.lowercased().contains(searchText.lowercased())
         })
-        
+
         tableView.reloadData()
         return true
     }
