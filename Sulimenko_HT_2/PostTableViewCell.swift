@@ -22,6 +22,7 @@ class PostTableViewCell: UITableViewCell {
     weak var delegate: PostTableViewCellDelegate?
     private var postLink = String()
     private var post: PostData?
+    private var bookmarkAnimationIcon: UIView?
     
     // MARK: - IBOutlets
     @IBOutlet weak var username: UILabel!
@@ -44,6 +45,13 @@ class PostTableViewCell: UITableViewCell {
     
     // MARK: - Configuration
     func config(from post: PostData) {
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped))
+        tap.numberOfTapsRequired = 2
+        tap.delaysTouchesBegan = true
+        self.imagePostView.addGestureRecognizer(tap)
+        self.imagePostView.isUserInteractionEnabled = true
+        
         self.post = post
         self.postLink = post.link
         self.username.text = "@\(post.author)"
@@ -55,5 +63,38 @@ class PostTableViewCell: UITableViewCell {
         self.imagePostView.sd_setImage(with: URL(string: post.imageURL))
         self.imagePostView.contentMode = .scaleAspectFill
         self.bookmarkButton.setImage(post.saved ? UIImage.init(systemName: "bookmark.fill"): UIImage.init(systemName: "bookmark"), for: .normal)
+    
+//        self.bookmarkAnimationIcon = BookmarkView(frame: self.imagePostView.frame)
+//        self.bookmarkAnimationIcon?.isHidden = true
+//        self.imagePostView.addSubview(self.bookmarkAnimationIcon!)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.imagePostView.gestureRecognizers?.forEach({ self.imagePostView.removeGestureRecognizer($0) })
+        self.imagePostView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
+    }
+    
+    // MARK: - DoubleTapGestureRecognizer
+    @objc func doubleTapped() {
+//        DispatchQueue.main.asyncAfter(deadline: .now()) {
+//            UIView.transition(
+//                with: self.imagePostView,
+//                duration: 0.4,
+//                options: .transitionCrossDissolve,
+//                animations: { self.bookmarkAnimationIcon?.isHidden = false },
+//                completion: {_ in
+//                    UIView.transition(
+//                        with: self.imagePostView,
+//                        duration: 0.8,
+//                        options: .transitionCrossDissolve) {
+//                        self.bookmarkAnimationIcon?.isHidden = true
+//                    }
+//            })
+//        }
+
+        if !(self.post?.saved ?? false) {
+            self.tapSaveButton(self.bookmarkButton!)
+        }
     }
 }
