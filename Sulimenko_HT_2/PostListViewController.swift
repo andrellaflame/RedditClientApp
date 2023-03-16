@@ -137,6 +137,7 @@ extension PostListViewController: UITableViewDataSource {
         
         cell.config(from: PostDataManager.shared.displayedPosts[indexPath.row])
         cell.delegate = self
+        
         return cell
     }
 }

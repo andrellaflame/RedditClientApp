@@ -45,7 +45,7 @@ class PostTableViewCell: UITableViewCell {
     
     // MARK: - Configuration
     func config(from post: PostData) {
-        
+    
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped))
         tap.numberOfTapsRequired = 2
         tap.delaysTouchesBegan = true
@@ -63,38 +63,39 @@ class PostTableViewCell: UITableViewCell {
         self.imagePostView.sd_setImage(with: URL(string: post.imageURL))
         self.imagePostView.contentMode = .scaleAspectFill
         self.bookmarkButton.setImage(post.saved ? UIImage.init(systemName: "bookmark.fill"): UIImage.init(systemName: "bookmark"), for: .normal)
-    
-//        self.bookmarkAnimationIcon = BookmarkView(frame: self.imagePostView.frame)
-//        self.bookmarkAnimationIcon?.isHidden = true
-//        self.imagePostView.addSubview(self.bookmarkAnimationIcon!)
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.imagePostView.gestureRecognizers?.forEach({ self.imagePostView.removeGestureRecognizer($0) })
-        self.imagePostView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
     }
     
     // MARK: - DoubleTapGestureRecognizer
     @objc func doubleTapped() {
-//        DispatchQueue.main.asyncAfter(deadline: .now()) {
-//            UIView.transition(
-//                with: self.imagePostView,
-//                duration: 0.4,
-//                options: .transitionCrossDissolve,
-//                animations: { self.bookmarkAnimationIcon?.isHidden = false },
-//                completion: {_ in
-//                    UIView.transition(
-//                        with: self.imagePostView,
-//                        duration: 0.8,
-//                        options: .transitionCrossDissolve) {
-//                        self.bookmarkAnimationIcon?.isHidden = true
-//                    }
-//            })
-//        }
+        self.imagePostView.subviews.forEach({ $0.removeFromSuperview() })
+        
+        let bookmarkSizeBox = self.imagePostView.bounds.midX / 4
+        
+        let view = BookmarkView(frame: CGRect(
+            x: self.imagePostView.bounds.midX - bookmarkSizeBox / 2,
+            y: self.imagePostView.bounds.midY - bookmarkSizeBox / 3 * 2,
+            width: bookmarkSizeBox,
+            height: bookmarkSizeBox))
+        view.isHidden = true
+        
+        self.imagePostView.addSubview(view)
 
-        if !(self.post?.saved ?? false) {
-            self.tapSaveButton(self.bookmarkButton!)
-        }
+        UIView.transition(
+            with: self,
+            duration: 0.2,
+            options: .transitionCrossDissolve,
+            animations: { view.isHidden = false },
+            completion: {_ in
+                UIView.transition(
+                    with: self,
+                    duration: 0.4,
+                    options: .transitionCrossDissolve,
+                    animations: { view.isHidden = true},
+                    completion: {_ in
+                        if !(self.post?.saved ?? false) {
+                            self.tapSaveButton(self.bookmarkButton!)
+                        }
+                    })
+            })
     }
 }

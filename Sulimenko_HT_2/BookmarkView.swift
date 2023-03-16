@@ -62,19 +62,6 @@ class BookmarkView: UIView {
         bookmarkShape.strokeColor = UIColor.systemBackground.cgColor
         bookmarkShape.fillColor =  UIColor.systemOrange.cgColor
         
-//        let pulsAnimation = CABasicAnimation(keyPath: "transform.scale")
-//        pulsAnimation.fromValue = 1
-//        pulsAnimation.toValue = 1.05
-//
-//
-//
-//        pulsAnimation.duration = 0.2
-//        pulsAnimation.repeatCount = 2
-//        pulsAnimation.autoreverses = true
-//
-//
-//        bookmarkShape.add(pulsAnimation, forKey: nil)
-        
         return bookmarkShape
     }
 }

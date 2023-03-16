@@ -60,13 +60,13 @@ class PostDetailsViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             UIView.transition(
                 with: self.view,
-                duration: 0.4,
+                duration: 0.2,
                 options: .transitionCrossDissolve,
                 animations: { self.bookmarkAnimationIcon?.isHidden = false },
                 completion: {_ in
                     UIView.transition(
                         with: self.view,
-                        duration: 0.8,
+                        duration: 0.4,
                         options: .transitionCrossDissolve) {
                         self.bookmarkAnimationIcon?.isHidden = true
                     }
