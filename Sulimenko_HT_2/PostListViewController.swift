@@ -166,32 +166,31 @@ extension PostListViewController: UITableViewDelegate {
                 return
             }
 
-                if offsetY > height - scrollView.frame.height {
-                    self.networkService.fetchData(
-                        subreddit: "ios",
-                        httpHeaders: ["limit":"\(Const.numberOfPostsOnPage)",
-                                      "after":after]
-                    ) {
-                        listOfPosts in
-                        DispatchQueue.main.async {
-                            let modified = listOfPosts.map({ element -> PostData in
-                                var copy = element
-                                for postElement in PostDataManager.shared.savedPosts{
-                                
-                                    if (postElement.id == element.id) {
-                                        copy.saved = true
-                                    }
+            if offsetY > height - scrollView.frame.height {
+                self.networkService.fetchData(
+                    subreddit: "ios",
+                    httpHeaders: ["limit":"\(Const.numberOfPostsOnPage)",
+                                  "after":after]
+                ) {
+                    listOfPosts in
+                    DispatchQueue.main.async {
+                        let modified = listOfPosts.map({ element -> PostData in
+                            var copy = element
+                            for postElement in PostDataManager.shared.savedPosts {
+                                if (postElement.id == element.id) {
+                                    copy.saved = true
                                 }
-                                return copy
-                            })
+                            }
+                            return copy
+                        })
                         
-                            PostDataManager.shared.displayedPosts.append(contentsOf: modified)
-                            PostDataManager.shared.allPosts.append(contentsOf: modified)
-                            self.tableView.reloadData()
-                        }
+                        PostDataManager.shared.displayedPosts.append(contentsOf: modified)
+                        PostDataManager.shared.allPosts.append(contentsOf: modified)
+                        self.tableView.reloadData()
                     }
                 }
             }
+        }
         else {
             tableView.tableFooterView = createEndPageMessage()
         }
