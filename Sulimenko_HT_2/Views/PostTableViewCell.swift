@@ -25,24 +25,41 @@ class PostTableViewCell: UITableViewCell {
     private var bookmarkAnimationIcon: UIView?
     
     // MARK: - IBOutlets
-    @IBOutlet private weak var username: UILabel!
-    @IBOutlet private weak var time: UILabel!
-    @IBOutlet private weak var domain: UILabel!
-    @IBOutlet private weak var titleName: UILabel!
-    @IBOutlet private weak var rating: UIButton!
-    @IBOutlet private weak var commentsCount: UIButton!
-    @IBOutlet private weak var imagePostView: UIImageView!
-    @IBOutlet private weak var bookmarkButton: UIButton!
+    @IBOutlet private weak var postView: PostView!
     
-    // MARK: - IBActions
-    @IBAction func tapShareButton(_ sender: Any) {
+    func config(from post: PostData) {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped))
+        tap.numberOfTapsRequired = 2
+        tap.delaysTouchesBegan = true
+        postView.imagePostView.addGestureRecognizer(tap)
+        postView.imagePostView.isUserInteractionEnabled = true
+        
+        self.post = post
+        self.postLink = post.link
+        
+        postView.config(from: post)
+        postView.shareButton.addTarget(self, action: #selector(tapShareButton), for: .touchUpInside)
+        postView.bookmarkButton.addTarget(self, action: #selector(tapSaveButton), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
+//    @IBAction func tapShareButton(_ sender: Any) {
+//        self.delegate?.didTapInsideShareButton(link: self.postLink)
+//    }
+//
+//    @IBAction func tapSaveButton(_ sender: Any) {
+//        self.delegate?.didTapInsideSaveButton(post: &(self.post)!, bookmarkButton: self.postView.bookmarkButton)
+//    }
+    
+    @objc func tapSaveButton(_ sender: Any) {
+        self.delegate?.didTapInsideSaveButton(post: &(self.post)!, bookmarkButton: self.postView.bookmarkButton)
+    }
+    
+    @objc func tapShareButton(_ sender: Any) {
         self.delegate?.didTapInsideShareButton(link: self.postLink)
     }
     
-    @IBAction func tapSaveButton(_ sender: Any) {
-        self.delegate?.didTapInsideSaveButton(post: &(self.post)!, bookmarkButton: self.bookmarkButton)
-    }
-    
+    /*
     // MARK: - Configuration
     func config(from post: PostData) {
     
@@ -64,21 +81,22 @@ class PostTableViewCell: UITableViewCell {
         self.imagePostView.contentMode = .scaleAspectFill
         self.bookmarkButton.setImage(post.saved ? UIImage.init(systemName: "bookmark.fill"): UIImage.init(systemName: "bookmark"), for: .normal)
     }
+     */
     
     // MARK: - DoubleTapGestureRecognizer
     @objc func doubleTapped() {
-        self.imagePostView.subviews.forEach({ $0.removeFromSuperview() })
+        postView.imagePostView.subviews.forEach({ $0.removeFromSuperview() })
         
-        let bookmarkSizeBox = self.imagePostView.bounds.midX / 4
+        let bookmarkSizeBox = postView.imagePostView.bounds.midX / 4
         
         let view = BookmarkView(frame: CGRect(
-            x: self.imagePostView.bounds.midX - bookmarkSizeBox / 2,
-            y: self.imagePostView.bounds.midY - bookmarkSizeBox / 3 * 2,
+            x: postView.imagePostView.bounds.midX - bookmarkSizeBox / 2,
+            y: postView.imagePostView.bounds.midY - bookmarkSizeBox / 3 * 2,
             width: bookmarkSizeBox,
             height: bookmarkSizeBox))
         view.isHidden = true
         
-        self.imagePostView.addSubview(view)
+        postView.imagePostView.addSubview(view)
 
         UIView.transition(
             with: self,
@@ -93,7 +111,7 @@ class PostTableViewCell: UITableViewCell {
                     animations: { view.isHidden = true },
                     completion: {_ in
                         if !(self.post?.saved ?? false) {
-                            self.tapSaveButton(self.bookmarkButton!)
+                            self.tapSaveButton(self.postView.bookmarkButton!)
                         }
                     })
             })

@@ -11,15 +11,16 @@ class PostView: UIView {
     let kCONTENT_XIB_NAME = "PostView"
     
     // MARK: - IBOutlets
-    @IBOutlet private weak var contentView: UIView!
-    @IBOutlet private weak var username: UILabel!
-    @IBOutlet private weak var time: UILabel!
-    @IBOutlet private weak var domain: UILabel!
-    @IBOutlet private weak var titleName: UILabel!
-    @IBOutlet private weak var rating: UIButton!
-    @IBOutlet private weak var commentsCount: UIButton!
-    @IBOutlet private weak var imagePostView: UIImageView!
-    @IBOutlet private weak var bookmarkButton: UIButton!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var domain: UILabel!
+    @IBOutlet weak var titleName: UILabel!
+    @IBOutlet weak var rating: UIButton!
+    @IBOutlet weak var commentsCount: UIButton!
+    @IBOutlet weak var imagePostView: UIImageView!
+    @IBOutlet weak var bookmarkButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
