@@ -22,10 +22,10 @@ class PostListViewController: UIViewController {
     }
     
     // MARK: - IBOutlets
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var showSavedPostsButton: UIBarButtonItem!
-    @IBOutlet weak var navigationBar: UINavigationItem!
-    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var showSavedPostsButton: UIBarButtonItem!
+    @IBOutlet private weak var navigationBar: UINavigationItem!
+    @IBOutlet private weak var searchTextField: UITextField!
     
     // MARK: - Properties & data
     private let networkService = NetworkService()

@@ -25,14 +25,14 @@ class PostTableViewCell: UITableViewCell {
     private var bookmarkAnimationIcon: UIView?
     
     // MARK: - IBOutlets
-    @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var domain: UILabel!
-    @IBOutlet weak var titleName: UILabel!
-    @IBOutlet weak var rating: UIButton!
-    @IBOutlet weak var commentsCount: UIButton!
-    @IBOutlet weak var imagePostView: UIImageView!
-    @IBOutlet weak var bookmarkButton: UIButton!
+    @IBOutlet private weak var username: UILabel!
+    @IBOutlet private weak var time: UILabel!
+    @IBOutlet private weak var domain: UILabel!
+    @IBOutlet private weak var titleName: UILabel!
+    @IBOutlet private weak var rating: UIButton!
+    @IBOutlet private weak var commentsCount: UIButton!
+    @IBOutlet private weak var imagePostView: UIImageView!
+    @IBOutlet private weak var bookmarkButton: UIButton!
     
     // MARK: - IBActions
     @IBAction func tapShareButton(_ sender: Any) {
