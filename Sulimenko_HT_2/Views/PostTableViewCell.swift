@@ -90,7 +90,7 @@ class PostTableViewCell: UITableViewCell {
                     with: self,
                     duration: 0.4,
                     options: .transitionCrossDissolve,
-                    animations: { view.isHidden = true},
+                    animations: { view.isHidden = true },
                     completion: {_ in
                         if !(self.post?.saved ?? false) {
                             self.tapSaveButton(self.bookmarkButton!)
