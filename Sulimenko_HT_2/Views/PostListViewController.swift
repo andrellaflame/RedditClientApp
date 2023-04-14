@@ -99,7 +99,7 @@ class PostListViewController: UIViewController {
             
             DispatchQueue.main.async {
                 if let selectedPost = self.lastSelectedPost {
-                    nextViewController.configure(with: selectedPost)
+                    nextViewController.config(from: selectedPost)
                     nextViewController.referenceTable = self.tableView
                 }
             }

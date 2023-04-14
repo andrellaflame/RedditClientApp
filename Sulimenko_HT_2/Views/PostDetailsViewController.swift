@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import SDWebImage
 
 class PostDetailsViewController: UIViewController {
@@ -16,46 +17,86 @@ class PostDetailsViewController: UIViewController {
     private var bookmarkAnimationIcon: UIView?
         
     // MARK: - IBOutlets
-    @IBOutlet private weak var username: UILabel!
-    @IBOutlet private weak var time: UILabel!
-    @IBOutlet private weak var domain: UILabel!
-    @IBOutlet private weak var titleName: UILabel!
-    @IBOutlet private weak var rating: UIButton!
-    @IBOutlet private weak var commentsCount: UIButton!
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var bookmarkButton: UIButton!
+    @IBOutlet private weak var postView: PostView!
+    @IBOutlet private weak var commentsView: UIView!
+    
+    
+    // MARK: - Constraints
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-    // MARK: - Configuration
-    func configure(with post: PostData) {
-        self.post = post
-        self.username.text = "@\(post.author)"
-        self.time.text = post.time
-        self.domain.text = post.domain
-        self.titleName.text = post.title
-        self.rating.setTitle("\(post.rating)", for: .normal)
-        self.commentsCount.setTitle("\(post.numberOfComments)", for: .normal)
-        self.imageView.sd_setImage(with: URL(string: post.imageURL))
-        self.bookmarkButton.setImage(post.saved ? UIImage.init(systemName: "bookmark.fill"): UIImage.init(systemName: "bookmark"), for: .normal)
-        
-        self.navigationItem.title = "r/\(post.author)"
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
-        tap.numberOfTapsRequired = 2
-        self.imageView.gestureRecognizers?.forEach{ self.imageView.removeGestureRecognizer($0) }
-        self.imageView.addGestureRecognizer(tap)
-        self.imageView.isUserInteractionEnabled = true
+        NSLayoutConstraint.activate([
+            postView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5),
+            commentsView.heightAnchor.constraint(equalTo: self.postView.heightAnchor),
+            postView.imagePostView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.25),
+        ])
     }
     
+    // MARK: - Configuration
+    func config(from post: PostData) {
+        DispatchQueue.main.async { [self] in
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped))
+            tap.numberOfTapsRequired = 2
+            
+            postView.imagePostView.gestureRecognizers?.forEach{ postView.imagePostView.removeGestureRecognizer($0) }
+            postView.imagePostView.addGestureRecognizer(tap)
+            postView.imagePostView.isUserInteractionEnabled = true
+            
+            self.post = post
+            self.navigationItem.title = "r/\(post.author)"
+            
+            postView.config(from: post)
+            postView.imagePostView.contentMode = .scaleAspectFit
+            postView.shareButton.addTarget(self, action: #selector(tapShareButton), for: .touchUpInside)
+            postView.bookmarkButton.addTarget(self, action: #selector(tapSaveButton), for: .touchUpInside)
+            
+            loadComments(from: post)
+        }
+    }
+    
+    func loadComments(from post: PostData) {
+        let swiftUIViewController: UIViewController = UIHostingController(rootView: CommentList()
+            .environmentObject(
+                CommentStorage(subreddit: "ios", postID: post.id)
+            ))
+        
+        let swiftUIView: UIView = swiftUIViewController.view
+        self.commentsView.addSubview(swiftUIView)
+        
+        swiftUIView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            swiftUIView.topAnchor.constraint(equalTo: self.commentsView.topAnchor),
+            swiftUIView.trailingAnchor.constraint(equalTo: self.commentsView.trailingAnchor),
+            swiftUIView.bottomAnchor.constraint(equalTo: self.commentsView.bottomAnchor),
+            swiftUIView.leadingAnchor.constraint(equalTo: self.commentsView.leadingAnchor)
+        ])
+        
+        swiftUIViewController.didMove(toParent: self)
+    }
+    
+    // MARK: - Actions
+    @objc func tapShareButton(_ sender: Any) {
+        if let urlString = self.post?.link {
+            AppService.didTapInsideShareButton(link: urlString, vc: self)
+        }
+    }
+    
+    @objc func tapSaveButton(_ sender: Any) {
+        AppService.didTapInsideSaveButton(post: &(self.post)!, bookmarkButton: self.postView.bookmarkButton)
+        self.referenceTable?.reloadData()
+    }
     
     // MARK: - DoubleTapGestureRecognizer
     @objc func doubleTapped() {
+        let bookmarkSizeBox = postView.imagePostView.bounds.midX / 4
         self.bookmarkAnimationIcon = BookmarkView(frame: CGRect(
-            x: self.view.bounds.midX - self.view.bounds.midX / 2,
-            y: self.view.bounds.midY - self.view.bounds.midY / 3 * 2,
-            width: self.view.bounds.midX,
-            height: self.view.bounds.midX))
-        
-        self.imageView.addSubview(self.bookmarkAnimationIcon!)
+            x: postView.imagePostView.bounds.midX - bookmarkSizeBox / 2,
+            y: postView.imagePostView.bounds.midY - bookmarkSizeBox / 3 * 2,
+            width: bookmarkSizeBox,
+            height: bookmarkSizeBox))
+       
+        postView.imagePostView.addSubview(self.bookmarkAnimationIcon!)
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             UIView.transition(
@@ -74,20 +115,7 @@ class PostDetailsViewController: UIViewController {
         }
         
         if !(self.post?.saved ?? false) {
-            self.tapSaveButton(self.bookmarkButton!)
+            self.tapSaveButton(self.postView.bookmarkButton!)
         }
-    }
-    
-    
-    // MARK: - IBActions
-    @IBAction func tapShareButton(_ sender: Any) {
-        if let urlString = self.post?.link {
-            AppService.didTapInsideShareButton(link: urlString, vc: self)
-        }
-    }
-    
-    @IBAction func tapSaveButton(_ sender: Any) {
-        AppService.didTapInsideSaveButton(post: &(self.post)!, bookmarkButton: self.bookmarkButton)
-        self.referenceTable?.reloadData()
     }
 }

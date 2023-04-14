@@ -18,6 +18,13 @@
 		0E11205A29A804F8002BFF23 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11205929A804F8002BFF23 /* NetworkService.swift */; };
 		0E19FA3729E89CF400DCB76D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19FA3629E89CF400DCB76D /* PostView.swift */; };
 		0E19FA3929E89D0F00DCB76D /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E19FA3829E89D0F00DCB76D /* PostView.xib */; };
+		0E19FA6929E8F4EB00DCB76D /* CommentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19FA6029E8F4EB00DCB76D /* CommentDetails.swift */; };
+		0E19FA6A29E8F4EB00DCB76D /* CommentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19FA6129E8F4EB00DCB76D /* CommentList.swift */; };
+		0E19FA6B29E8F4EB00DCB76D /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19FA6229E8F4EB00DCB76D /* CommentCell.swift */; };
+		0E19FA6D29E8F4EB00DCB76D /* CommentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19FA6529E8F4EB00DCB76D /* CommentStorage.swift */; };
+		0E19FA6E29E8F4EB00DCB76D /* ParsedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19FA6629E8F4EB00DCB76D /* ParsedJSON.swift */; };
+		0E19FA6F29E8F4EB00DCB76D /* CommentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19FA6729E8F4EB00DCB76D /* CommentDTO.swift */; };
+		0E19FA7029E8F4EB00DCB76D /* CommentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19FA6829E8F4EB00DCB76D /* CommentData.swift */; };
 		0E5A1A4429AFF214003D7C08 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A1A4329AFF214003D7C08 /* PostTableViewCell.swift */; };
 		0E5A1A4929AFF7AA003D7C08 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A1A4829AFF7AA003D7C08 /* PostData.swift */; };
 		0E5BFDFF29B114B600C56CCE /* 25x25RedditLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E5BFDFE29B114B600C56CCE /* 25x25RedditLogo.png */; };
@@ -42,6 +49,13 @@
 		0E11205929A804F8002BFF23 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0E19FA3629E89CF400DCB76D /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		0E19FA3829E89D0F00DCB76D /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
+		0E19FA6029E8F4EB00DCB76D /* CommentDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentDetails.swift; sourceTree = "<group>"; };
+		0E19FA6129E8F4EB00DCB76D /* CommentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentList.swift; sourceTree = "<group>"; };
+		0E19FA6229E8F4EB00DCB76D /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		0E19FA6529E8F4EB00DCB76D /* CommentStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentStorage.swift; sourceTree = "<group>"; };
+		0E19FA6629E8F4EB00DCB76D /* ParsedJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedJSON.swift; sourceTree = "<group>"; };
+		0E19FA6729E8F4EB00DCB76D /* CommentDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentDTO.swift; sourceTree = "<group>"; };
+		0E19FA6829E8F4EB00DCB76D /* CommentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentData.swift; sourceTree = "<group>"; };
 		0E5A1A4329AFF214003D7C08 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		0E5A1A4829AFF7AA003D7C08 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		0E5BFDFE29B114B600C56CCE /* 25x25RedditLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 25x25RedditLogo.png; sourceTree = "<group>"; };
@@ -85,6 +99,7 @@
 		0E11204229A7FB26002BFF23 /* Sulimenko_HT_2 */ = {
 			isa = PBXGroup;
 			children = (
+				0E19FA3A29E8BD8400DCB76D /* SwiftUIFiles */,
 				0E19FA3529E89CC800DCB76D /* PostView */,
 				0E8D815229B8F33900741F20 /* Application */,
 				0E5BFDFD29B114B600C56CCE /* Images */,
@@ -124,6 +139,36 @@
 				0E19FA3829E89D0F00DCB76D /* PostView.xib */,
 			);
 			path = PostView;
+			sourceTree = "<group>";
+		};
+		0E19FA3A29E8BD8400DCB76D /* SwiftUIFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0E19FA6429E8F4EB00DCB76D /* Model */,
+				0E19FA5F29E8F4EB00DCB76D /* Views */,
+			);
+			path = SwiftUIFiles;
+			sourceTree = "<group>";
+		};
+		0E19FA5F29E8F4EB00DCB76D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0E19FA6029E8F4EB00DCB76D /* CommentDetails.swift */,
+				0E19FA6129E8F4EB00DCB76D /* CommentList.swift */,
+				0E19FA6229E8F4EB00DCB76D /* CommentCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0E19FA6429E8F4EB00DCB76D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E19FA6529E8F4EB00DCB76D /* CommentStorage.swift */,
+				0E19FA6629E8F4EB00DCB76D /* ParsedJSON.swift */,
+				0E19FA6729E8F4EB00DCB76D /* CommentDTO.swift */,
+				0E19FA6829E8F4EB00DCB76D /* CommentData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0E5A1A4229AFF110003D7C08 /* HTTPRequest */ = {
@@ -297,10 +342,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E19FA6929E8F4EB00DCB76D /* CommentDetails.swift in Sources */,
 				0E5A1A4429AFF214003D7C08 /* PostTableViewCell.swift in Sources */,
+				0E19FA6D29E8F4EB00DCB76D /* CommentStorage.swift in Sources */,
 				0E8D815429B9042000741F20 /* AppService.swift in Sources */,
 				0E5A1A4929AFF7AA003D7C08 /* PostData.swift in Sources */,
+				0E19FA6E29E8F4EB00DCB76D /* ParsedJSON.swift in Sources */,
 				0E11205A29A804F8002BFF23 /* NetworkService.swift in Sources */,
+				0E19FA6B29E8F4EB00DCB76D /* CommentCell.swift in Sources */,
+				0E19FA7029E8F4EB00DCB76D /* CommentData.swift in Sources */,
+				0E19FA6F29E8F4EB00DCB76D /* CommentDTO.swift in Sources */,
+				0E19FA6A29E8F4EB00DCB76D /* CommentList.swift in Sources */,
 				0E11204829A7FB26002BFF23 /* PostDetailsViewController.swift in Sources */,
 				0E11204429A7FB26002BFF23 /* AppDelegate.swift in Sources */,
 				0E11205829A802CF002BFF23 /* JSONFetch.swift in Sources */,

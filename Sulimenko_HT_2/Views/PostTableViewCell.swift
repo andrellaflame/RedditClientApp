@@ -27,6 +27,7 @@ class PostTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet private weak var postView: PostView!
     
+    // MARK: - Configuration
     func config(from post: PostData) {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped))
         tap.numberOfTapsRequired = 2
@@ -43,14 +44,6 @@ class PostTableViewCell: UITableViewCell {
     }
     
     // MARK: - Actions
-//    @IBAction func tapShareButton(_ sender: Any) {
-//        self.delegate?.didTapInsideShareButton(link: self.postLink)
-//    }
-//
-//    @IBAction func tapSaveButton(_ sender: Any) {
-//        self.delegate?.didTapInsideSaveButton(post: &(self.post)!, bookmarkButton: self.postView.bookmarkButton)
-//    }
-    
     @objc func tapSaveButton(_ sender: Any) {
         self.delegate?.didTapInsideSaveButton(post: &(self.post)!, bookmarkButton: self.postView.bookmarkButton)
     }
@@ -58,30 +51,6 @@ class PostTableViewCell: UITableViewCell {
     @objc func tapShareButton(_ sender: Any) {
         self.delegate?.didTapInsideShareButton(link: self.postLink)
     }
-    
-    /*
-    // MARK: - Configuration
-    func config(from post: PostData) {
-    
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped))
-        tap.numberOfTapsRequired = 2
-        tap.delaysTouchesBegan = true
-        self.imagePostView.addGestureRecognizer(tap)
-        self.imagePostView.isUserInteractionEnabled = true
-        
-        self.post = post
-        self.postLink = post.link
-        self.username.text = "@\(post.author)"
-        self.time.text = post.time
-        self.domain.text = post.domain
-        self.titleName.text = post.title
-        self.rating.setTitle("\(post.rating)", for: .normal)
-        self.commentsCount.setTitle("\(post.numberOfComments)", for: .normal)
-        self.imagePostView.sd_setImage(with: URL(string: post.imageURL))
-        self.imagePostView.contentMode = .scaleAspectFill
-        self.bookmarkButton.setImage(post.saved ? UIImage.init(systemName: "bookmark.fill"): UIImage.init(systemName: "bookmark"), for: .normal)
-    }
-     */
     
     // MARK: - DoubleTapGestureRecognizer
     @objc func doubleTapped() {
