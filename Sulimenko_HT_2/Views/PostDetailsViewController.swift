@@ -28,7 +28,6 @@ class PostDetailsViewController: UIViewController {
         NSLayoutConstraint.activate([
             postView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5),
             commentsView.heightAnchor.constraint(equalTo: self.postView.heightAnchor),
-            postView.imagePostView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.25),
         ])
     }
     

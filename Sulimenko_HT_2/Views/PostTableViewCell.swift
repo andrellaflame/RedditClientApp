@@ -39,6 +39,11 @@ class PostTableViewCell: UITableViewCell {
         self.postLink = post.link
         
         postView.config(from: post)
+        
+        NSLayoutConstraint.activate([
+            postView.imagePostView.heightAnchor.constraint(equalToConstant: 300)
+        ])
+        
         postView.shareButton.addTarget(self, action: #selector(tapShareButton), for: .touchUpInside)
         postView.bookmarkButton.addTarget(self, action: #selector(tapSaveButton), for: .touchUpInside)
     }

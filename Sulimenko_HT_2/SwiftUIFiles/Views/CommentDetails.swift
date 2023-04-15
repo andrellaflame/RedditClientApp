@@ -34,12 +34,11 @@ struct CommentDetails: View {
                                             in: RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                         }
                         
-                        ScrollView{
-                            VStack {
-                                Text(body)
-                                    .multilineTextAlignment(.leading)
-                            }
+                        VStack {
+                            Text(body)
+                                .multilineTextAlignment(.leading)
                         }
+                        
                         .font(.callout)
                         .padding(8)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
