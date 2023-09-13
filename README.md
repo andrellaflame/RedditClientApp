@@ -1,3 +1,3 @@
 # RedditClientApp
 
-Branch main conatins homework 2 and all other homeworks are in the separate branches of the repository
+HT_7 branch has the latest version of the app. RedditClientApp is build as a copy of the reddit app. 
